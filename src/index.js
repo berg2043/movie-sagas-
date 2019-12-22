@@ -11,10 +11,11 @@ import createSagaMiddleware from 'redux-saga';
 import movies from './reducers/movies';
 import genres from './reducers/genres';
 // Sagas
+import getMovies from './sagas/getMovies'
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    getMovies
 }
 
 // Create sagaMiddleware
