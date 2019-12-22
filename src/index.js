@@ -11,6 +11,7 @@ import { takeEvery } from 'redux-saga/effects'
 // Reducers
 import movies from './reducers/movies';
 import genres from './reducers/genres';
+import movieInfo from './reducers/movie-info'
 // Sagas
 import getMovies from './sagas/get-movies'
 import getMovieInfo from './sagas/get-movie-info'
@@ -29,6 +30,7 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        movieInfo
     }),
     applyMiddleware(sagaMiddleware, logger),
 );
