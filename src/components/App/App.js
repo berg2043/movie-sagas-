@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
+import Movie from '../Movie/Movie';
 
 
 const App = (props) => {
@@ -19,15 +20,11 @@ const App = (props) => {
     <div>
       {movieList.map(movie=>{
         return(
-          <div key={movie.id}>
-            <img src={movie.poster}/>
-            <h1>{movie.title}</h1>
-            <p>{movie.description}</p>
-          </div>
+          <Movie key={movie.id} movie={movie}/>
         )
       })}
     </div>
   );
-}
+};
 
 export default App;
