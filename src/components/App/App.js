@@ -1,29 +1,14 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import './App.css';
-import Movie from '../Movie/Movie';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import MovieList from '../MovieList/MovieList';
 
 
 const App = (props) => {
-  // Adds dispatch
-  const dispatch = useDispatch();
-  
-  // Adds movies reducer
-  const movieList = useSelector(state => state.movies);
-  
-  // Gets the list of movies from DB and puts movieList
-  useEffect(()=>{
-    dispatch({type: 'GET_MOVIES'})
-  }, [dispatch]);
-  
   return (
-    <div>
-      {movieList.map(movie=>{
-        return(
-          <Movie key={movie.id} movie={movie}/>
-        )
-      })}
-    </div>
+    <Router>
+      <Route component={MovieList}/>
+    </Router>
   );
 };
 
