@@ -1,18 +1,31 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
 
 const App = (props) => {
   // Adds dispatch
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  
+  // Adds movies reducer
+  const movieList = useSelector(state => state.movies);
+  
+  // Gets the list of movies from DB and puts movieList
   useEffect(()=>{
     dispatch({type: 'GET_MOVIES'})
-  }, [dispatch])
+  }, [dispatch]);
+  
   return (
     <div>
-      <p>Empty Page</p>
+      {movieList.map(movie=>{
+        return(
+          <div key={movie.id}>
+            <img src={movie.poster}/>
+            <h1>{movie.title}</h1>
+            <p>{movie.description}</p>
+          </div>
+        )
+      })}
     </div>
   );
 }
