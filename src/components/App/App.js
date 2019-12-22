@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import './App.css';
 
-class App extends Component {
-  // Renders the entire app on the DOM
-  render() {
-    return (
-      <div className="App">
-        <p>Empty Page</p>
-      </div>
-    );
-  }
+
+const App = (props) => {
+  // Adds dispatch
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch({type: 'GET_MOVIES'})
+  }, [dispatch])
+  return (
+    <div>
+      <p>Empty Page</p>
+    </div>
+  );
 }
 
 export default App;
