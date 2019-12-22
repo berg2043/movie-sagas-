@@ -11,8 +11,8 @@ const Details = (props) => {
 
   // Gets specific movie info from DB and puts it on movie reducer
   useEffect(()=>{
-    dispatch({type: 'GET_MOVIE_INFO', payload: props.match.params.name})
-  }, [dispatch, props.match.params.name]);
+    dispatch({type: 'GET_MOVIE_INFO', payload: props.match.params.title})
+  }, [dispatch, props.match.params.title]);
   
   // Gets movie info from reducer
   const movieInfo = useSelector(state => state.movieInfo);
