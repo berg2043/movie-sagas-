@@ -8,13 +8,13 @@ const MovieList = (props) => {
   const movieList = useSelector(state => state.movies);
 
   return (
-    <div>
+    <>
       {movieList.map(movie=>{
         return(
           <Movie key={movie.id} movie={movie}/>
         )
       })}
-    </div>
+    </>
   );
 };
 
