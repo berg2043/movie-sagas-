@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MovieList from '../MovieList/MovieList';
 
 
 const App = (props) => {
   return (
     <Router>
-      <Route component={MovieList}/>
+      <Switch>
+        <Route exact path='/' component={MovieList}/>
+        <Route exact path='/details/:name' component={}/>
+      </Switch>
     </Router>
   );
 };
