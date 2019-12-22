@@ -10,7 +10,7 @@ const App = (props) => {
   // Adds dispatch
   const dispatch = useDispatch();
 
-  // Gets the list of movies from DB and puts movies reducer
+  // Gets the list of movies from DB and puts it on movies reducer
   useEffect(()=>{
     dispatch({type: 'GET_MOVIES'})
   }, [dispatch]);
