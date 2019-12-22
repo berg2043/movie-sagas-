@@ -18,6 +18,7 @@ router.get('/', (req,res)=>{
 router.get('/:name', (req,res)=>{
   const queryText = 
       `SELECT 
+        "movies"."id",
         "movies"."title", 
         "movies"."poster", 
         "movies"."description", 
