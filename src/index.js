@@ -12,7 +12,7 @@ import { takeEvery } from 'redux-saga/effects'
 import movies from './reducers/movies';
 import genres from './reducers/genres';
 // Sagas
-import getMovies from './sagas/getMovies'
+import getMovies from './sagas/get-movies'
 
 // Create the rootSaga generator function
 function* rootSaga() {
