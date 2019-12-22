@@ -4,17 +4,9 @@ import Movie from '../Movie/Movie';
 
 
 const MovieList = (props) => {
-  // Adds dispatch
-  const dispatch = useDispatch();
-  
   // Adds movies reducer
   const movieList = useSelector(state => state.movies);
-  
-  // Gets the list of movies from DB and puts movieList
-  useEffect(()=>{
-    dispatch({type: 'GET_MOVIES'})
-  }, [dispatch]);
-  
+
   return (
     <div>
       {movieList.map(movie=>{
