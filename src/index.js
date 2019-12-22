@@ -7,6 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
+import { takeEvery } from 'redux-saga/effects'
 // Reducers
 import movies from './reducers/movies';
 import genres from './reducers/genres';
@@ -15,7 +16,7 @@ import getMovies from './sagas/getMovies'
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    getMovies
+    yield takeEvery('GET_MOVIES', getMovies);
 }
 
 // Create sagaMiddleware
