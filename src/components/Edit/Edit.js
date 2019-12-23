@@ -1,8 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import {Grid, margin, TextField, FormGroup, FormLabel, FormControl, Button, FormControlLabel, Checkbox} from '@material-ui/core'
+
+const useStyles = makeStyles(theme => ({
+  root:{
+    backgroundColor: 'gray',
+    maxWidth: 800,
+    margin:'auto'
+  },
+  image:{
+    maxWidth: 1,
+    margin:'auto'
+  },
+  content:{
+    maxWidth: 800
+  },
+  multiline:{
+    width:'100%'
+  },
+  margin: {
+    margin: theme.spacing(1),
+  },
+  formControl: {
+    margin: theme.spacing(3),
+  },
+}));
 
 const Edit = (props) => {
+
+  const classes = useStyles();
+
   // State values
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -70,37 +99,74 @@ const Edit = (props) => {
   }
 
   return (
-    <div>
-      <img 
-        src={'/'+movieInfo.poster} //unsure why / is needed
-        alt={movieInfo.title}
-      />
-      <form>
-        <input 
-          value={title}
-          onChange={(event)=>setTitle(event.target.value)}
+    <Grid container className={classes.root} alignItems="flex-start">
+      <Grid item xs={6} className={classes.image}>
+        <img 
+          src={'/'+movieInfo.poster} //unsure why / is needed
+          alt={movieInfo.title}
         />
-        <textarea 
-          value={description}
-          onChange={(event)=>setDescription(event.target.value)}
-        />
-        {Object.entries(genres).map((genre, i)=>{
-          return(
-            <span key={i}>
-              <input
-                type="checkbox"
-                name={genre[0]} 
-                checked={genres[genre[0]].checked}
-                onChange={checkboxes}
-              /> 
-              <span>{genre[0]}</span>
-            </span>
-          )
-        })}
-        <button type="button" onClick={cancel}>Cancel</button>
-        <button type="submit" onClick={saveInput}>Save</button>
-      </form>
-    </div>
+      </Grid>
+      <Grid item xs={6}>
+        <FormControl className={classes.formControl}>
+          <FormLabel>Genres</FormLabel>
+          <FormGroup>
+            {Object.entries(genres).map((genre, i)=>{
+              return(
+                <FormControlLabel
+                  key={i}
+                  control={
+                    <Checkbox
+                      name={genre[0]} 
+                      checked={genres[genre[0]].checked}
+                      onChange={checkboxes}
+                    /> 
+                  }
+                  label={genre[0]}  
+                >
+              </FormControlLabel>
+              )
+            })}
+          </FormGroup>
+        </FormControl>
+      </Grid>
+      <Grid item xs={12} className={classes.content}>
+        <form>
+          <TextField 
+            className={classes.margin}
+            label="Title"
+            variant="filled"
+            value={title}
+            onChange={(event)=>setTitle(event.target.value)}
+          />
+          <TextField 
+            className={classes.margin}
+            label="Description"
+            variant="filled"
+            multiline
+            value={description}
+            onChange={(event)=>setDescription(event.target.value)}
+            className={classes.multiline}
+          />
+
+          <Button 
+            type="margin" 
+            onClick={cancel}
+            color="secondary"
+            variant="contained"
+          >
+            Cancel
+          </Button>
+          <Button 
+            type="submit" 
+            onClick={saveInput}
+            color="primary"
+            variant="contained"
+          >
+            Save
+          </Button>
+        </form>
+      </Grid>
+    </Grid>
   );
 };
 
