@@ -7,7 +7,7 @@ function* putMovie (action){
     yield put({type: 'GET_MOVIES'})
     yield put({type: 'GET_MOVIE_INFO', payload: action.payload.title})
   } catch (error) {
-    console.log('Error getting movies',error);
+    console.log('Error putting movies',error);
   }
 }
 
