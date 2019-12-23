@@ -13,7 +13,8 @@ const App = (props) => {
 
   // Gets the list of movies from DB and puts it on movies reducer
   useEffect(()=>{
-    dispatch({type: 'GET_MOVIES'})
+    dispatch({type: 'GET_MOVIES'});
+    dispatch({type: 'GET_GENRES'});
   }, [dispatch]);
 
   return (
