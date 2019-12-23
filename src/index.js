@@ -15,11 +15,13 @@ import movieInfo from './reducers/movie-info'
 // Sagas
 import getMovies from './sagas/get-movies'
 import getMovieInfo from './sagas/get-movie-info'
+import putMovie from './sagas/put-movie'
 
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_MOVIE_INFO', getMovieInfo);
+    yield takeEvery('PUT_MOVIE', putMovie);
 }
 
 // Create sagaMiddleware
