@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { put } from 'redux-saga/effects'
 
-function* getMovies (action){
+function* getMovieInfo (action){
   try {
     const response = yield Axios.get('/api/movies/' + action.payload)
     yield put({type: 'SET_MOVIE_INFO', payload: response.data[0]})
@@ -10,4 +10,4 @@ function* getMovies (action){
   }
 }
 
-export default getMovies;
+export default getMovieInfo;
