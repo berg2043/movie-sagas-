@@ -4,6 +4,7 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MovieList from '../MovieList/MovieList';
 import Details from '../Details/Details';
+import Edit from '../Edit/Edit';
 
 
 const App = (props) => {
@@ -19,7 +20,8 @@ const App = (props) => {
     <Router>
       <Switch>
         <Route exact path='/' component={MovieList}/>
-        <Route exact path='/details/:name' component={Details}/>
+        <Route exact path='/details/:title' component={Details}/>
+        <Route exact path='/edit/:title' component={Edit}/>
       </Switch>
     </Router>
   );
