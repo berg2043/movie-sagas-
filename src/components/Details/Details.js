@@ -25,7 +25,8 @@ const Details = (props) => {
       />
       <h1>{movieInfo.title}</h1>
       <p>{movieInfo.description}</p>
-      <button onClick={()=>history.push('')}>Back to List</button>
+      <button onClick={()=>history.push('/')}>Back to List</button>
+      <button onClick={()=>history.push('/edit/'+movieInfo.title)}>Edit</button>
     </div>
   );
 };
