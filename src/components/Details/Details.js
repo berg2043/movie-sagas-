@@ -25,7 +25,10 @@ const Details = (props) => {
       />
       <h1>{movieInfo.title}</h1>
       <p>{movieInfo.description}</p>
-      <p>{movieInfo.genres.map((genre, i)=>{return(<span key={i}>{genre}</span>)})}</p>
+      <h2>Genres</h2>
+      <ul>
+        <p>{movieInfo.genres.map((genre, i)=>{return(<li key={i}>{genre}</li>)})}</p>
+      </ul>
       <button onClick={()=>history.push('/')}>Back to List</button>
       <button onClick={()=>history.push('/edit/'+movieInfo.title)}>Edit</button>
     </div>
