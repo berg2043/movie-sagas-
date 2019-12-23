@@ -18,9 +18,10 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 800
   },
   multiline:{
+    margin: theme.spacing(1),
     width:'100%'
   },
-  margin: {
+  margins: {
     margin: theme.spacing(1),
   },
   formControl: {
@@ -132,14 +133,13 @@ const Edit = (props) => {
       <Grid item xs={12} className={classes.content}>
         <form>
           <TextField 
-            className={classes.margin}
+            className={classes.margins}
             label="Title"
             variant="filled"
             value={title}
             onChange={(event)=>setTitle(event.target.value)}
           />
           <TextField 
-            className={classes.margin}
             label="Description"
             variant="filled"
             multiline
@@ -149,6 +149,7 @@ const Edit = (props) => {
           />
 
           <Button 
+            className={classes.margins}
             type="margin" 
             onClick={cancel}
             color="secondary"
@@ -157,6 +158,7 @@ const Edit = (props) => {
             Cancel
           </Button>
           <Button 
+            className={classes.margins}
             type="submit" 
             onClick={saveInput}
             color="primary"
