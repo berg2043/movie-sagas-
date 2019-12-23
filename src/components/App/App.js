@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MovieList from '../MovieList/MovieList';
 import Details from '../Details/Details';
