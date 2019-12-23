@@ -5,7 +5,6 @@ import App from './components/App/App.js';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery } from 'redux-saga/effects'
 // Reducers
@@ -36,7 +35,7 @@ const storeInstance = createStore(
         genres,
         movieInfo
     }),
-    applyMiddleware(sagaMiddleware, logger),
+    applyMiddleware(sagaMiddleware),
 );
 
 // Pass rootSaga into our sagaMiddleware
