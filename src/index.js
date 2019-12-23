@@ -13,15 +13,17 @@ import movies from './reducers/movies';
 import genres from './reducers/genres';
 import movieInfo from './reducers/movie-info'
 // Sagas
-import getMovies from './sagas/get-movies'
-import getMovieInfo from './sagas/get-movie-info'
-import putMovie from './sagas/put-movie'
+import getMovies from './sagas/get-movies';
+import getMovieInfo from './sagas/get-movie-info';
+import putMovie from './sagas/put-movie';
+import getGenres from './sagas/get-genres'
 
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_MOVIE_INFO', getMovieInfo);
     yield takeEvery('PUT_MOVIE', putMovie);
+    yield takeEvery('GET_GENRES', getGenres);
 }
 
 // Create sagaMiddleware
